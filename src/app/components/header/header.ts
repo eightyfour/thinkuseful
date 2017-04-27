@@ -1,4 +1,5 @@
-import * as canny from "canny";
+import * as canny from 'canny';
+import * as headerTemplate from './header.html'
 
 
 canny.add('header', () => {
@@ -10,12 +11,12 @@ canny.add('header', () => {
     }
 });
 
-
 export class Header {
     private template;
     constructor() {
-        this.template = document.createElement('header');
-        this.template.setAttribute('canny-mod', 'header')
+        let node = document.createElement('div');
+        node.innerHTML = headerTemplate;
+        this.template = node.children[0];
     }
     get node(): HTMLElement {
         return this.template

@@ -1,7 +1,8 @@
 'use strict'
 
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -28,8 +29,20 @@ module.exports = {
                 // test: /\.less$/,
                 // loader: "style!css!autoprefixer!less"
             }
+        ],
+        rules :[
+            {
+                test: /\.html$/,
+                use: 'raw-loader'
+            }
         ]
     },
+    plugins : [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: true
+        })
+    ],
     devServer: {
         contentBase: "./src"
     }

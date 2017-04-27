@@ -1,4 +1,4 @@
-import * as canny from "canny";
+import * as canny from 'canny';
 import { Header } from './components/header/header';
 
 canny.add('app', () => {

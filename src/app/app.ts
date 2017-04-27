@@ -1,11 +1,16 @@
 import * as canny from "canny";
+import { Header } from './components/header/header';
 
-canny.add('app', (c) => {
+canny.add('app', () => {
 
-    var obj = Object.assign(null, c);
     return {
         add : (node: HTMLElement) => {
+            node.appendChild((new Header()).node);
             node.appendChild(document.createTextNode('Hello world'));
+            canny.cannyParse(node);
+        },
+        ready : function () {
+            console.log('app:ready');
         }
     }
 });

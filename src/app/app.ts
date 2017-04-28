@@ -1,16 +1,15 @@
 import * as canny from 'canny';
-import { Header } from './components/header/header';
+import { Component } from './components/component';
 
 canny.add('app', () => {
-
+    let component;
     return {
         add : (node: HTMLElement) => {
-            node.appendChild((new Header()).node);
-            node.appendChild(document.createTextNode('Hello world'));
-            canny.cannyParse(node);
+            component = new Component(node);
         },
         ready : function () {
             console.log('app:ready');
+            component.components.header.data = {text : {name: 'Philipp'}};
         }
     }
 });

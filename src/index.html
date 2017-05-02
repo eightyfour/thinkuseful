@@ -3,8 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>thinkuseful</title>
+	<link rel="stylesheet" href="/medium-editor/css/medium-editor.min.css">
+	<link rel="stylesheet" href="/medium-editor/css/themes/beagle.min.css">
+	<script src="/medium-editor/js/medium-editor.min.js"></script>
+	<script src="/medium-editor-markdown/me-markdown.standalone.min.js"></script>
+
 </head>
 <body>
 	<div canny-mod="app"></div>
+
+	<div class="editor"></div>
+	<pre class="markdown"></pre>
+
+	<script>
+      (function () {
+          var markDownEl = document.querySelector(".markdown");
+          new MediumEditor(document.querySelector(".editor"), {
+              extensions: {
+                  markdown: new MeMarkdown(function (md) {
+                      markDownEl.textContent = md;
+                  })
+              }
+          });
+      })();
+	</script>
+
+
 </body>
 </html>

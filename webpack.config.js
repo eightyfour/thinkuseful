@@ -44,6 +44,6 @@ module.exports = {
         })
     ],
     devServer: {
-        contentBase: "./src"
+        contentBase: "./dist"
     }
 };
